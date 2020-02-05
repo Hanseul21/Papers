@@ -107,13 +107,15 @@ def get_kl(mu, sigma, train=True, y=None, s=20):
 
 
 hidden_size = 500
-
 lr = 0.0001
 epoch = 200
 batch_size = 100
-L = 1
-C = 1
-
+C = 10
+'''
+    L = 1,
+    Task 1 is applied
+     : normal (1,2,3), seen anomaly (others)
+'''
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,0.5,0.5), (0.5, 0.5, 0.5))])
 trainset = dsets.MNIST(root='./data', train=True, download=True, transform=transforms.ToTensor())
 testset = dsets.MNIST(root='./data', train=False, download=True, transform=transforms.ToTensor())
